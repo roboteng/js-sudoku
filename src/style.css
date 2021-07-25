@@ -1,0 +1,75 @@
+html {
+  box-sizing: border-box;
+  background-color: #ccc;
+}
+
+.grid {
+  display: inline-block;
+  border: 2px solid black;
+  border-spacing: 0;
+}
+
+.puzzle-cell {
+  border-right: 1px solid #666;
+  border-bottom: 1px solid #666;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+}
+
+.puzzle-cell.selected {
+  background-color: burlywood;
+}
+
+.puzzle-cell:nth-child(3n) {
+  border-right: 2px solid #111;
+}
+
+.puzzle-row:nth-child(3n) .puzzle-cell{
+  border-bottom: 2px solid #111;
+}
+
+.puzzle-cell:last-child {
+  border-right-width: 0;
+}
+
+.puzzle-row:last-child .puzzle-cell{
+  border-bottom-width: 0;
+}
+
+.given-cell {
+  color: black;
+}
+
+.solved-cell {
+  color: #004;
+}
+
+.option-cell {
+  color: #444;
+}
+
+/* Controls */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 100px;
+}
+
+.pencil-mode, .digit {
+  margin: 4px;
+  border-radius: 4px;
+}
+
+.digit {
+  display: inline-block;
+}
+
+.checked {
+  background-color: #004;
+  color: #fff;
+  border-radius: 8px;
+}
