@@ -45,8 +45,7 @@ var buildGrid = function (state) {
     var $row = $('<tr>');
     $row.addClass('puzzle-row');
     for (var j = 0; j < 9; j++) {
-      var $cell = buildCell(state.puzzle.getNumber(j, i), j, i, state);
-
+      var $cell = buildCell(state.puzzle.getCell(j, i), j, i, state);
       $cell.appendTo($row);
     }
     $row.appendTo($grid);

@@ -6,9 +6,12 @@ var Sudoku = function () {
 };
 
 Sudoku.prototype = {
-  getNumber: function(x,y ) {
+  getCell: function(x,y ) {
     return this.numbers[x + 9 * y];
   },
+  setCell: function(x, y, cell) {
+    this.numbers[x + 9 * y] = cell;
+  }
 };
 
 var GivenCell = function (value) {
