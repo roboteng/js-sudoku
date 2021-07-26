@@ -1,5 +1,5 @@
-var ActionStack = function (state) {
-  this.state = state;
+var ActionStack = function (puzzle) {
+  this.puzzle = puzzle;
   this.actions = [];
 };
 
@@ -8,11 +8,11 @@ ActionStack.prototype = {
     this.actions.push(action);
   },
   evaluate: function () {
-    var state = Object.assign({}, this.state);
+    var puzzle = Object.create(this.puzzle);
     this.actions.forEach(function (action) {
-      state.puzzle.setCell(action.x, action.y, SolvedCell(1));
+      puzzle.setCell(action.x, action.y, SolvedCell(1));
     });
-    return state;
+    return puzzle;
   },
 };
 
@@ -25,6 +25,12 @@ var SolveCellAction = function (x, y, digit) {
 var State = function (puzzle) {
     this.pencilMode =  false;
     this.selectedCells = [];
-    this.puzzle =  puzzle;
     this.shiftHeld = false;
+    this.actionStack = new ActionStack(puzzle);
+}
+
+State.prototype = {
+  getPuzzle: function () {
+    return this.actionStack.evaluate()
+  },
 }
