@@ -28,7 +28,13 @@ var buildCell = function(cell, x, y, state) {
         return elem !== index;
       });
     } else {
-      state.selectedCells.push(index);
+      if (state.shiftHeld) {
+        state.selectedCells.push(index);
+      } else {
+        state.selectedCells = [index];
+      }
+
+
     }
     display(state);
   });
