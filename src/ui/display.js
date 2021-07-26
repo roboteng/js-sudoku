@@ -62,9 +62,7 @@ var buildDigitButton = function(state, digit) {
   $button.attr('type', 'button');
   $button.attr('value', digit.toString());
 
-  $button.click(function () {
-    // TODO
-  });
+  $button.click(createDigitButtonCallback(state, digit));
 
   $button.appendTo($digit);
   return $digit;
