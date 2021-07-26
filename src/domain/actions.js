@@ -4,9 +4,18 @@ var ActionStack = function (state) {
 };
 
 ActionStack.prototype = {
+  push: function (action) {
+    this.actions.push(action);
+  },
   evaluate: function () {
     return this.state;
   },
+};
+
+var SolveCellAction = function (x, y, digit) {
+  this.x = x;
+  this.y = y;
+  this. digit = digit;
 };
 
 var State = function (puzzle) {

@@ -1,7 +1,7 @@
 var Sudoku = function () {
   this.numbers = [];
   for (var i = 0; i < 81; i++) {
-    this.numbers.push(undefined);
+    this.numbers.push(new OptionCell());
   }
 };
 
@@ -38,12 +38,6 @@ var OptionCell = function () {
   for (var i = 1; i <= 9; i++) {
     this.options.push(false);
   }
-  this.set = function (digit, newValue) {
-    this.options[digit] = newValue;
-  };
-  this.get = function (digit) {
-    return this.options[digit];
-  };
 }
 
 OptionCell.prototype = {
@@ -57,4 +51,10 @@ OptionCell.prototype = {
     }
     return result.join(' ');
   },
+  set: function (digit, newValue) {
+    this.options[digit] = newValue;
+  },
+  get: function (digit) {
+    return this.options[digit];
+  }
 };
