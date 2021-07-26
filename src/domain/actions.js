@@ -1,4 +1,13 @@
-var ActionStack = function (state) {};
+var ActionStack = function (state) {
+  this.state = state;
+  this.actions = [];
+};
+
+ActionStack.prototype = {
+  evaluate: function () {
+    return this.state;
+  },
+};
 
 var State = function (puzzle) {
     this.pencilMode =  false;
