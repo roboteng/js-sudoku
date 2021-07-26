@@ -8,7 +8,11 @@ ActionStack.prototype = {
     this.actions.push(action);
   },
   evaluate: function () {
-    return this.state;
+    var state = Object.assign({}, this.state);
+    this.actions.forEach(function (action) {
+      state.puzzle.setCell(action.x, action.y, SolvedCell(1));
+    });
+    return state;
   },
 };
 

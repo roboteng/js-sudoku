@@ -14,6 +14,14 @@ Sudoku.prototype = {
   }
 };
 
+var xyToIndex = function (x, y) {
+  return x + 9 * y;
+};
+
+var indexToXY = function (index) {
+  return [index % 9, Math.floor(index / 9)];
+}
+
 var GivenCell = function (value) {
   this.value = value;
 };
