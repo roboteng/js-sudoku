@@ -7,6 +7,9 @@ ActionStack.prototype = {
   push: function (action) {
     this.actions.push(action);
   },
+  pop: function () {
+    return this.actions.pop();
+  },
   evaluate: function () {
     var puzzle = Object.create(this.puzzle);
     this.actions.forEach(function (action) {

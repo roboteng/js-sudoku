@@ -34,4 +34,14 @@ describe('Action Stack', function () {
 
     expect(actionStack.evaluate()).to.eql(expected);
   });
+  it('should return to origonal state, if sent an action and pop', function () {
+    var puzzle = new Sudoku();
+    var actionStack = new ActionStack(puzzle);
+    var expected = new Sudoku();
+
+    actionStack.push(new SolveCellAction(0, 0, 1));
+    actionStack.pop();
+
+    expect(actionStack.evaluate()).to.eql(expected);
+  });
 });
