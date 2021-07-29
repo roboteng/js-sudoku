@@ -13,7 +13,7 @@ ActionStack.prototype = {
   evaluate: function () {
     var puzzle = Object.create(this.puzzle);
     this.actions.forEach(function (action) {
-      puzzle.setCell(action.pos, SolvedCell(1));
+      puzzle.setCell(action.pos, new SolvedCell(action.digit));
     });
     return puzzle;
   },

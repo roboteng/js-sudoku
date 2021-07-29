@@ -8,7 +8,7 @@ describe('Action Stack', function () {
     var puzzle = new Sudoku();
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
-    expected.setCell(new Position(0, 0), SolvedCell(1));
+    expected.setCell(new Position(0, 0), new SolvedCell(1));
 
     actionStack.push(new SolveCellAction(new Position(0, 0), 1));
 
@@ -18,7 +18,7 @@ describe('Action Stack', function () {
     var puzzle = new Sudoku();
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
-    expected.setCell(new Position(1, 0), SolvedCell(1));
+    expected.setCell(new Position(1, 0), new SolvedCell(1));
 
     actionStack.push(new SolveCellAction(new Position(1, 0), 1));
 
@@ -28,7 +28,7 @@ describe('Action Stack', function () {
     var puzzle = new Sudoku();
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
-    expected.setCell(new Position(1, 1), SolvedCell(2));
+    expected.setCell(new Position(1, 1), new SolvedCell(2));
 
     actionStack.push(new SolveCellAction(new Position(1, 1), 2));
 
