@@ -45,3 +45,34 @@ describe('OptionCell description', function () {
     expect(cell.getInnerHtml()).to.eql('3 4');
   });
 });
+
+describe('Position', function () {
+  it('should generate x and y if given two arguments', function () {
+    var pos = new Position(0, 0);
+
+    expect(pos.getX()).to.eql(0);
+    expect(pos.getY()).to.eql(0);
+    expect(pos.getIndex()).to.eql(0);
+  });
+  it('should generate x and y if given 1, 0', function () {
+    var pos = new Position(1, 0);
+
+    expect(pos.getX()).to.eql(1);
+    expect(pos.getY()).to.eql(0);
+    expect(pos.getIndex()).to.eql(1);
+  });
+  it('should generate x and y if given 0, 1', function () {
+    var pos = new Position(0, 1);
+
+    expect(pos.getX()).to.eql(0);
+    expect(pos.getY()).to.eql(1);
+    expect(pos.getIndex()).to.eql(9);
+  });
+  it('should generate x and y if given one argument', function () {
+    var pos = new Position(0);
+
+    expect(pos.getX()).to.eql(0);
+    expect(pos.getY()).to.eql(0);
+    expect(pos.getIndex()).to.eql(0);
+  });
+});

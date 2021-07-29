@@ -66,3 +66,17 @@ OptionCell.prototype = {
     return this.options[digit];
   }
 };
+
+var Position = function (indexOrX, y) {
+  if (y === undefined) {
+    this.index = indexOrX;
+  } else {
+    this.index = indexOrX + 9 * y;
+  }
+};
+
+Position.prototype = {
+  getX: function () { return this.index % 9; },
+  getY: function () { return Math.floor(this.index / 9); },
+  getIndex: function () { return this.index; },
+};
