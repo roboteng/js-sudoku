@@ -2,18 +2,18 @@ var $div = function () {
   return $('<div>');
 }
 
-var buildCell = function(cell, x, y, state) {
+var buildCell = function(cell, pos, state) {
   var $cell = $('<td></td>');
   $cell.addClass('puzzle-cell');
 
   $cell.html(cell.getInnerHtml());
   $cell.addClass(cell.getCSSClass());
 
-  $cell.addClass('row-' + y);
-  $cell.addClass('col-' + x);
-  $cell.addClass('sub-' + findSubGrid(x, y));
+  $cell.addClass('row-' + pos.getY());
+  $cell.addClass('col-' + pos.getX());
+  $cell.addClass('sub-' + findSubGrid(pos));
 
-  var index = x + y * 9;
+  var index = pos.getIndex();
   var isSelected = function () {
     return state.selectedCells.includes(index);
   }
@@ -33,8 +33,6 @@ var buildCell = function(cell, x, y, state) {
       } else {
         state.selectedCells = [index];
       }
-
-
     }
     display(state);
   });
@@ -51,7 +49,8 @@ var buildGrid = function (state) {
     var $row = $('<tr>');
     $row.addClass('puzzle-row');
     for (var j = 0; j < 9; j++) {
-      var $cell = buildCell(state.puzzle.getCell(j, i), j, i, state);
+      var pos = new Position(j, i);
+      var $cell = buildCell(state.puzzle.getCell(pos), pos, state);
       $cell.appendTo($row);
     }
     $row.appendTo($grid);

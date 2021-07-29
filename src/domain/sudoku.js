@@ -6,21 +6,13 @@ var Sudoku = function () {
 };
 
 Sudoku.prototype = {
-  getCell: function(x,y ) {
-    return this.numbers[x + 9 * y];
+  getCell: function(pos) {
+    return this.numbers[pos.getIndex()];
   },
-  setCell: function(x, y, cell) {
-    this.numbers[x + 9 * y] = cell;
+  setCell: function(pos, cell) {
+    this.numbers[pos.getIndex()] = cell;
   }
 };
-
-var xyToIndex = function (x, y) {
-  return x + 9 * y;
-};
-
-var indexToXY = function (index) {
-  return [index % 9, Math.floor(index / 9)];
-}
 
 var GivenCell = function (value) {
   this.value = value;

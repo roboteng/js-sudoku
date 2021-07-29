@@ -8,9 +8,9 @@ describe('Action Stack', function () {
     var puzzle = new Sudoku();
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
-    expected.setCell(0, 0, SolvedCell(1));
+    expected.setCell(new Position(0, 0), SolvedCell(1));
 
-    actionStack.push(new SolveCellAction(0, 0, 1));
+    actionStack.push(new SolveCellAction(new Position(0, 0), 1));
 
     expect(actionStack.evaluate()).to.eql(expected);
   });
@@ -18,9 +18,9 @@ describe('Action Stack', function () {
     var puzzle = new Sudoku();
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
-    expected.setCell(1, 0, SolvedCell(1));
+    expected.setCell(new Position(1, 0), SolvedCell(1));
 
-    actionStack.push(new SolveCellAction(1, 0, 1));
+    actionStack.push(new SolveCellAction(new Position(1, 0), 1));
 
     expect(actionStack.evaluate()).to.eql(expected);
   });
@@ -28,9 +28,9 @@ describe('Action Stack', function () {
     var puzzle = new Sudoku();
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
-    expected.setCell(1, 1, SolvedCell(2));
+    expected.setCell(new Position(1, 1), SolvedCell(2));
 
-    actionStack.push(new SolveCellAction(1, 1, 2));
+    actionStack.push(new SolveCellAction(new Position(1, 1), 2));
 
     expect(actionStack.evaluate()).to.eql(expected);
   });
@@ -39,7 +39,7 @@ describe('Action Stack', function () {
     var actionStack = new ActionStack(puzzle);
     var expected = new Sudoku();
 
-    actionStack.push(new SolveCellAction(0, 0, 1));
+    actionStack.push(new SolveCellAction(new Position(0, 0), 1));
     actionStack.pop();
 
     expect(actionStack.evaluate()).to.eql(expected);

@@ -13,15 +13,14 @@ ActionStack.prototype = {
   evaluate: function () {
     var puzzle = Object.create(this.puzzle);
     this.actions.forEach(function (action) {
-      puzzle.setCell(action.x, action.y, SolvedCell(1));
+      puzzle.setCell(action.pos, SolvedCell(1));
     });
     return puzzle;
   },
 };
 
-var SolveCellAction = function (x, y, digit) {
-  this.x = x;
-  this.y = y;
+var SolveCellAction = function (pos, digit) {
+  this.pos = pos;
   this. digit = digit;
 };
 
