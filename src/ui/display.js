@@ -1,8 +1,8 @@
 var $div = function () {
   return $('<div>');
-}
+};
 
-var buildCell = function(cell, pos, state) {
+var buildCell = function (cell, pos, state) {
   var $cell = $('<td></td>');
   $cell.addClass('puzzle-cell');
 
@@ -16,7 +16,7 @@ var buildCell = function(cell, pos, state) {
   var index = pos.getIndex();
   var isSelected = function () {
     return state.selectedCells.includes(index);
-  }
+  };
 
   if (isSelected()) {
     $cell.addClass('selected');
@@ -37,7 +37,7 @@ var buildCell = function(cell, pos, state) {
     display(state);
   });
 
-  return $cell
+  return $cell;
 };
 
 var buildGrid = function (state) {
@@ -59,7 +59,7 @@ var buildGrid = function (state) {
   return $grid;
 };
 
-var buildDigitButton = function(state, digit) {
+var buildDigitButton = function (state, digit) {
   var $digit = $div();
   var $button = $('<input>');
   $digit.addClass('digit');
@@ -76,7 +76,7 @@ var buildControls = function (state) {
   var $controls = $div();
   var $digits = $div();
   var $pencilMode = $div();
-  var $pencilToggle = $('<input>')
+  var $pencilToggle = $('<input>');
 
   $controls.addClass('controls');
   $digits.addClass('digits');
@@ -122,4 +122,4 @@ var display = function (state) {
   $app.text('');
   $('<h1>Sudoku</h1>').appendTo($app);
   buildPuzzleArea(state).appendTo($app);
-}
+};

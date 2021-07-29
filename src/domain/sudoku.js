@@ -6,10 +6,10 @@ var Sudoku = function () {
 };
 
 Sudoku.prototype = {
-  getCell: function(pos) {
+  getCell: function (pos) {
     return this.numbers[pos.getIndex()];
   },
-  setCell: function(pos, cell) {
+  setCell: function (pos, cell) {
     this.numbers[pos.getIndex()] = cell;
   }
 };
@@ -25,7 +25,7 @@ GivenCell.prototype = {
 
 var SolvedCell = function (value) {
   this.value = value;
-}
+};
 
 SolvedCell.prototype = {
   getCSSClass: function () { return 'solved-cell'; },
@@ -38,7 +38,7 @@ var OptionCell = function () {
   for (var i = 1; i <= 9; i++) {
     this.options.push(false);
   }
-}
+};
 
 OptionCell.prototype = {
   getCSSClass: function () { return 'option-cell'; },

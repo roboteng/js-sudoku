@@ -25,14 +25,14 @@ var SolveCellAction = function (pos, digit) {
 };
 
 var State = function (puzzle) {
-    this.pencilMode =  false;
-    this.selectedCells = [];
-    this.shiftHeld = false;
-    this.actionStack = new ActionStack(puzzle);
-}
+  this.pencilMode =  false;
+  this.selectedCells = [];
+  this.shiftHeld = false;
+  this.actionStack = new ActionStack(puzzle);
+};
 
 State.prototype = {
   getPuzzle: function () {
-    return this.actionStack.evaluate()
+    return this.actionStack.evaluate();
   },
-}
+};

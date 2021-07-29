@@ -11,8 +11,8 @@ var createDigitButtonCallback = function (state, digit) {
       }
     });
     display(state);
-  }
-}
+  };
+};
 
 var sampleSudoku = function () {
   var puzzle = new Sudoku();
